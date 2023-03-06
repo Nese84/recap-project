@@ -1,7 +1,9 @@
+
 import React,{useState,useEffect} from "react";
 import ProductCard from "../components/ProductCard";
 import CardTotal from "../components/CardTotal";
 import axios from "axios";
+
 
 const ProductList = () => {
   const url = process.env.REACT_APP_API_URL;
@@ -42,7 +44,13 @@ const ProductList = () => {
           <>
             <article id="product-panel" className="col-md-5">
               {products.map(item=>{
-                return <ProductCard key={item.id}  item={item} />;
+                return (
+                  <ProductCard
+                    key={item.id}
+                    item={item}
+                    getProducts={getProducts}
+                  />
+                );
               }) }
             </article>
             <article className="col-md-5 m-3">
